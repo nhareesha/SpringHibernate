@@ -7,6 +7,12 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>orm Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+  	<spring-version>4.3.1.RELEASE</spring-version>
+  	<hibernate-version>4.3.5.Final</hibernate-version>
+  	<mysql-version>5.1.38</mysql-version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -23,7 +29,54 @@
 	    <scope>provided</scope>
 	</dependency>
 	
+	<!-- Spring -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${spring-version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-tx</artifactId>
+	    <version>${spring-version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring-version}</version>
+	</dependency>
+	
+	
+	<!-- Hibernate -->
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>${hibernate-version}</version>
+	</dependency>
+	
+	<!-- Mysql connector -->
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>${mysql-version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
+	<dependency>
+	    <groupId>commons-dbcp</groupId>
+	    <artifactId>commons-dbcp</artifactId>
+	    <version>1.4</version>
+	</dependency>
+	
   </dependencies>
+  
   <build>
     <finalName>orm</finalName>
   </build>
