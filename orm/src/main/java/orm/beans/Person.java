@@ -3,6 +3,7 @@ package orm.beans;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -18,9 +19,9 @@ import javax.persistence.Transient;
 public class Person {
 	
 	@Id
-	@GeneratedValue //generation type is AUTO and access type is filed , since @id is on filed
+	@GeneratedValue(strategy = GenerationType.IDENTITY)//generation type is AUTO and access type is filed , since @id is on filed
 	@Column(name="id")
-	int id;
+	private int id;
 	
 	@Column(name="first_name")  //column annotation is purely optional unless we want to specify other properties
 	private String fname;

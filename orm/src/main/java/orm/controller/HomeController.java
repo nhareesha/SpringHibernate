@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import orm.beans.Person;
 import orm.beans.PersonBean;
+import orm.dao.Base;
 
 @RestController
 public class HomeController {
 	
 	@Autowired
 	private Person person;
+	
+	@Autowired
+	private Base dao;
 	
 	@RequestMapping(value="/createEnquiry", method=RequestMethod.POST, 
 			consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
@@ -28,8 +32,7 @@ public class HomeController {
 			person.setLname(bean.getLname());
 			person.setSalary(bean.getSalary());
 			person.setEmpType(bean.getEmpType());
-			
-			
+			dao.addPerson(person);
 			
 		}else{
 			result="Required data is missing";

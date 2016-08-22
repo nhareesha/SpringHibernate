@@ -11,18 +11,19 @@ public class BaseDAOImpl implements Base {
 	
 	private SessionFactory sessionFactory;
 	private Session session;
+	Transaction tx;
 	
 	public void addPerson(Person person) {
 		try{	
-			Session session = sessionFactory.openSession();
-			Transaction tx = session.beginTransaction();
-			session.persist(person); //persists the person object to database
+			session = sessionFactory.openSession();
+			tx = session.beginTransaction();
+			session.save(person); //persists the person object to database
 			tx.commit();
 		}catch(Exception ex){
 			ex.printStackTrace();
+			tx.rollback();
 		}finally{
 			session.close();
-			sessionFactory.close();
 		}
 	}
 	public SessionFactory getSessionFactory() {
