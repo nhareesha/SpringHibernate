@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Entity bean with JPA annotations
@@ -21,7 +22,7 @@ public class Person {
 	@Column(name="id")
 	int id;
 	
-	@Column(name="first_name")
+	@Column(name="first_name")  //column annotation is purely optional unless we want to specify other properties
 	private String fname;
 	
 	@Column(name="last_name")
@@ -32,6 +33,9 @@ public class Person {
 	
 	@Column(name="salary")
 	private double salary;
+	
+	@Transient   //this annotation ignore the filed during persisting
+	private String empType;
 	
 	public String getFname() {
 		return fname;
