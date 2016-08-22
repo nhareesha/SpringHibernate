@@ -16,5 +16,7 @@
         
         <!-- allowing spring to discover the package that has controller -->
         <context:component-scan base-package="orm.controller"/>
+        
+        <bean id="person" class="orm.beans.Person"/>
 
 </beans>

@@ -61,4 +61,10 @@ public class Person {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
+	public String getEmpType() {
+		return empType;
+	}
+	public void setEmpType(String empType) {
+		this.empType = empType;
+	}
 }

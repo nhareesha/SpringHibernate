@@ -44,5 +44,9 @@
 				</props>
 			</property>
 		</bean>
+		
+		<bean id="baseDAO" class="orm.dao.BaseDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
 	
 </beans>
