@@ -12,6 +12,7 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>	
 	</listener>
+	
 	<!-- Processes application requests or webservice requests-->
 	<servlet>
 		<servlet-name>spring</servlet-name>
