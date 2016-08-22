@@ -1,0 +1,46 @@
+package orm.controller;
+
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import orm.beans.Person;
+import orm.beans.PersonBean;
+
+@RestController
+public class HomeController {
+	
+	@Autowired
+	private Person person;
+	
+	@RequestMapping(value="/createEnquiry", method=RequestMethod.POST, 
+			consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE)
+	public String createEntry(@RequestBody PersonBean bean){
+		String result=null;
+		if(bean !=null){
+			person.setEmpId(UUID.randomUUID().toString());
+			person.setFname(bean.getFname());
+			person.setLname(bean.getLname());
+			person.setSalary(bean.getSalary());
+			person.setEmpType(bean.getEmpType());
+			
+			
+			
+		}else{
+			result="Required data is missing";
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping("*")
+	public String fallbackHandler(){
+		return "Requested resource not avaliable";
+	}
+
+}
