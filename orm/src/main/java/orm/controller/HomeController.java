@@ -1,5 +1,6 @@
 package orm.controller;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,23 @@ public class HomeController {
 			person.setSalary(bean.getSalary());
 			person.setEmpType(bean.getEmpType());
 			dao.addPerson(person);
+			result="Inserted";
 			
 		}else{
 			result="Required data is missing";
 		}
 		
 		return result;
+	}
+	
+	@RequestMapping(value="/getList", method=RequestMethod.GET)
+	public void getList(){
+		
+		List<Person> p = dao.getPerson();
+		if(p!=null && p.size()>0){
+			System.out.println(p.toString());
+		}
+		
 	}
 	
 	@RequestMapping("*")
