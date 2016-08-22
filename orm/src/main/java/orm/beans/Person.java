@@ -68,4 +68,10 @@ public class Person {
 	public void setEmpType(String empType) {
 		this.empType = empType;
 	}
+	
+	@Override
+	public String toString(){
+		return "fname="+this.fname+"lname="+this.lname+"salary="+this.salary;
+		
+	}
 }
